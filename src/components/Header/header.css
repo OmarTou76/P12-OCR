@@ -11,11 +11,18 @@ header {
 
 .header__logo {
     display: flex;
-    flex: .2;
+    flex: .15;
     height: 100%;
     align-items: center;
     justify-content: center;
-    color: var(--red)
+    color: var(--red);
+    gap: .5rem;
+}
+.header__logo div {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    border: 2px solid var(--red);
 }
 
 .header__nav {
