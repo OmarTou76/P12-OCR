@@ -1,0 +1,14 @@
+.iconBadge {
+    background: white;
+    height: 4rem;
+    width: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+}
+
+.iconBadge img {
+    height: 2rem;
+    width: 2rem;
+}
