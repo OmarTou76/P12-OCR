@@ -1,3 +1,35 @@
 .userActivity {
     margin-top: 2rem;
+    color: #20253A;
+    font-size: 14px;
+    background-color: #FBFBFB;
+    padding: 2rem 1.5rem;
+    border-radius: 5px;
+}
+
+.activity__legend {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    color: #20253A;
+    font-size: 15px;
+}
+
+.activity__legend ul {
+    display: flex;
+    gap: 1rem;
+}
+.activity__legend li {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    color: #74798C;
+    font-size: 14px;
+}
+
+.activity__legend__color {
+    width: .5rem;
+    height: .5rem;
+    border-radius: 1rem;
 }
