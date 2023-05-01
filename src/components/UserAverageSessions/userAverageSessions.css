@@ -1,0 +1,12 @@
+.userAverageSessions {
+    background-color: var(--red);
+    color: white;
+    width: 30%;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.userAverageSessions__legend {
+    font-size: 15px;
+    opacity: .7;
+}
