@@ -12,7 +12,7 @@ import {
     Legend
 } from "recharts";
 
-export const UserActivity = ({ userId = 12 }) => {
+export const UserActivity = ({ userId = 18 }) => {
     const [activity, setActivity] = useState({})
     const [userActivity, activityLoading, errorActivity] = useFetch(userId, "activity")
 
@@ -22,15 +22,13 @@ export const UserActivity = ({ userId = 12 }) => {
 
     if (errorActivity) return <p>Error with data</p>
 
-
-
     return (
         <div className='userActivity'>
             {!activity?.data ? <p>...Loading</p> :
                 <ResponsiveContainer width="100%"
                     aspect={3}>
                     <BarChart barSize={12} data={activity.data.sessions}>
-                        <Legend verticalAlign='top' height={50}
+                        <Legend verticalAlign='top' height={60}
                             content={({ payload }) => {
                                 return (
                                     <div className='activity__legend'>
@@ -46,7 +44,7 @@ export const UserActivity = ({ userId = 12 }) => {
                                     </div>
                                 )
                             }} />
-                        <XAxis tickLine={false} tickFormatter={(num) => num + 1} tickSize={15} />
+                        <XAxis tickLine={false} tickFormatter={(num) => num + 1} tickSize={20} />
                         <YAxis orientation='right' tickLine={false} tickSize={15} axisLine={false} />
                         <Tooltip
                             contentStyle={{ background: 'red' }}
@@ -64,8 +62,3 @@ export const UserActivity = ({ userId = 12 }) => {
         </div>
     )
 }
-
-{/* <Legend verticalAlign='top' iconType='circle' align="right" height={50} formatter={(value) => {
-                            if (value === "kilogram") return "Poids (kg)"
-                            else if (value === "calories") return "Calories brûlées (kCal)"
-                        }} /> */}
