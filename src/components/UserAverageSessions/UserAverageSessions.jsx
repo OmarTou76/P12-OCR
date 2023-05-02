@@ -26,20 +26,29 @@ export const UserAverageSessions = ({ userId }) => {
 
     if (errorSessions) return <p>Error with data</p>
 
-
     const handleBackgroundPercer = (e) => {
         setTooltip(e.isTooltipActive)
         if (!e.isTooltipActive) return
         const labelSum = sessions.length - 1
-        const percent = ((100 * e.activeLabel) / labelSum)
+        const percent = ((100 * e.activeTooltipIndex) / labelSum)
         setBackgroundPercent(Math.abs(percent - 100))
+    }
+
+    const calculateCssPercent = (percent) => {
+        if (percent === 50) {
+            return `${backgroundPercent}%`
+        } else if (percent < 50) {
+            return `calc(${backgroundPercent}% + 0.5rem)`
+        } else if (percent > 50) {
+            return `calc(${backgroundPercent}% - 0.5rem)`
+        }
     }
 
     return (
         <div className='userAverageSessions'
             style={{
-                background: isTooltipActive && `linear-gradient(270deg, rgba(208,0,0,1) ${backgroundPercent}%, rgba(255,0,0,1) ${backgroundPercent}%)`
-            }}>
+                background: isTooltipActive && `linear-gradient(270deg, rgba(208,0,0,1) ${calculateCssPercent(backgroundPercent)}, rgba(255,0,0,1) ${calculateCssPercent(backgroundPercent)})`
+            }} >
             {!sessions ? <p>...Loading</p> :
                 <ResponsiveContainer width="100%" aspect={1}>
                     <LineChart data={sessions}
