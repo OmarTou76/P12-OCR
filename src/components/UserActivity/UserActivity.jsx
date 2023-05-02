@@ -11,23 +11,27 @@ import {
     ResponsiveContainer,
     Legend
 } from "recharts";
+import { Activity } from '../../models/Activity';
 
 export const UserActivity = ({ userId = 18 }) => {
     const [activity, setActivity] = useState({})
     const [userActivity, activityLoading, errorActivity] = useFetch(userId, "activity")
 
     useEffect(() => {
-        if (!activityLoading && !errorActivity) setActivity(userActivity)
+        if (!activityLoading && !errorActivity) {
+            setActivity(new Activity(userActivity))
+
+        }
     }, [userActivity, activityLoading, errorActivity])
 
     if (errorActivity) return <p>Error with data</p>
 
     return (
         <div className='userActivity'>
-            {!activity?.data ? <p>...Loading</p> :
+            {!activity ? <p>...Loading</p> :
                 <ResponsiveContainer width="100%"
                     aspect={3}>
-                    <BarChart barSize={12} data={activity.data.sessions}>
+                    <BarChart barSize={12} data={activity}>
                         <Legend verticalAlign='top' height={60}
                             content={({ payload }) => {
                                 return (
@@ -44,7 +48,7 @@ export const UserActivity = ({ userId = 18 }) => {
                                     </div>
                                 )
                             }} />
-                        <XAxis tickLine={false} tickFormatter={(num) => num + 1} tickSize={20} />
+                        <XAxis tickLine={false} dataKey={"index"} tickSize={20} />
                         <YAxis orientation='right' tickLine={false} tickSize={15} axisLine={false} />
                         <Tooltip
                             contentStyle={{ background: 'red' }}
