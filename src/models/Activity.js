@@ -6,8 +6,10 @@ export class Activity {
     }
 
     createModel(activity) {
-        this.model = {
-            sessions: activity.sessions,
-        }
+
+        this.model = activity.data.sessions.map((activity, index) => ({
+            ...activity,
+            index: index + 1
+        }))
     }
 }
