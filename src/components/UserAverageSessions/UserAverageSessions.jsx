@@ -71,7 +71,7 @@ export const UserAverageSessions = ({ userId }) => {
                             formatter={(value) => [`${value} min`]}
                             cursor={{ stroke: 'none' }}
                         />
-                        <XAxis tickLine={false} dataKey={'day'} axisLine={false} tickSize={20} tick={{ fill: "white", opacity: .5 }} />
+                        <XAxis tickLine={false} dataKey={'day'} axisLine={false} tickSize={15} tick={{ fill: "white", opacity: .5 }} fontSize={12} />
                         <Line dataKey="sessionLength" strokeWidth={2} type="monotone" stroke="url(#MyGradient)" dot={false} />
                     </LineChart>
                 </ResponsiveContainer>
