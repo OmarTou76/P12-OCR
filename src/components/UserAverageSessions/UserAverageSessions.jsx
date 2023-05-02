@@ -9,6 +9,7 @@ import {
 } from "recharts";
 import { useFetch } from '../../utils/useFetch';
 import './userAverageSessions.css'
+import { AverageSessions } from '../../models/AverageSessions';
 
 export const UserAverageSessions = ({ userId }) => {
 
@@ -18,17 +19,18 @@ export const UserAverageSessions = ({ userId }) => {
     const [backgroundPercent, setBackgroundPercent] = useState(null)
 
     useEffect(() => {
-        if (!sessionsLoading && !errorSessions) setSessions(userSessions)
+        if (!sessionsLoading && !errorSessions) {
+            setSessions(new AverageSessions(userSessions))
+        }
     }, [userSessions, sessionsLoading, errorSessions])
 
     if (errorSessions) return <p>Error with data</p>
 
-    const days = ["L", "M", "M", "J", "V", "S", "D"]
 
     const handleBackgroundPercer = (e) => {
         setTooltip(e.isTooltipActive)
         if (!e.isTooltipActive) return
-        const labelSum = days.length - 1
+        const labelSum = sessions.length - 1
         const percent = ((100 * e.activeLabel) / labelSum)
         setBackgroundPercent(Math.abs(percent - 100))
     }
@@ -38,9 +40,9 @@ export const UserAverageSessions = ({ userId }) => {
             style={{
                 background: isTooltipActive && `linear-gradient(270deg, rgba(208,0,0,1) ${backgroundPercent}%, rgba(255,0,0,1) ${backgroundPercent}%)`
             }}>
-            {!sessions?.data ? <p>...Loading</p> :
+            {!sessions ? <p>...Loading</p> :
                 <ResponsiveContainer width="100%" aspect={1}>
-                    <LineChart data={sessions.data.sessions}
+                    <LineChart data={sessions}
                         onMouseLeave={() => setTooltip(false)}
                         onMouseMove={handleBackgroundPercer}
                     >
@@ -60,7 +62,7 @@ export const UserAverageSessions = ({ userId }) => {
                             formatter={(value) => [`${value} min`]}
                             cursor={{ stroke: 'none' }}
                         />
-                        <XAxis tickLine={false} tickFormatter={(num) => days[num]} axisLine={false} tickSize={20} tick={{ fill: "white", opacity: .5 }} />
+                        <XAxis tickLine={false} dataKey={'day'} axisLine={false} tickSize={20} tick={{ fill: "white", opacity: .5 }} />
                         <Line dataKey="sessionLength" strokeWidth={2} type="monotone" stroke="url(#MyGradient)" dot={false} />
                     </LineChart>
                 </ResponsiveContainer>
