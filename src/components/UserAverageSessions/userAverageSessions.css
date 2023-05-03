@@ -1,7 +1,8 @@
 .userAverageSessions {
     background-color: red;
     color: white;
-    width: 32%;
+    width: 258px;
+    height: 262px;
     border-radius: 5px;
     padding: .5rem;
 }

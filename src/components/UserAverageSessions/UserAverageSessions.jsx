@@ -50,7 +50,7 @@ export const UserAverageSessions = ({ userId }) => {
                 background: isTooltipActive && `linear-gradient(270deg, rgba(208,0,0,1) ${calculateCssPercent(backgroundPercent)}, rgba(255,0,0,1) ${calculateCssPercent(backgroundPercent)})`
             }} >
             {!sessions ? <p>...Loading</p> :
-                <ResponsiveContainer width="100%" aspect={1}>
+                <ResponsiveContainer width="100%" height="100%">
                     <LineChart data={sessions}
                         onMouseLeave={() => setTooltip(false)}
                         onMouseMove={handleBackgroundPercer}
