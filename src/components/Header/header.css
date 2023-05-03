@@ -11,7 +11,7 @@ header {
 
 .header__logo {
     display: flex;
-    flex: .18;
+    flex: .16;
     height: 100%;
     align-items: center;
     justify-content: center;
@@ -19,7 +19,7 @@ header {
 }
 
 .header__nav {
-    flex: .8;
+    flex: .9;
 }
 .header__nav ul {
     display: flex;
