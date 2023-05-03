@@ -24,9 +24,9 @@ export const UserPerformance = ({ userId }) => {
     if (errorPerformance) return <p>Error with data</p>
 
     return (
-        <div className='userPerformance'>
+        <div className='userPerformance' >
             {!performance ? <p>...Loading</p> : (
-                <ResponsiveContainer aspect={1}>
+                <ResponsiveContainer width="100%" height="100%">
                     <RadarChart cx="50%" cy="50%" outerRadius="65%" data={performance}>
                         <PolarGrid radialLines={false} stroke='white' />
                         <PolarAngleAxis dataKey="kind" fontSize={9} tickSize={10} tick={{ fill: "white" }} />
