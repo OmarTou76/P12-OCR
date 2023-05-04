@@ -31,3 +31,12 @@
     font-size: 20px;
     color: #282D30;
 }
+
+@media screen and (max-width: 1260px) {
+    .badge {
+        width: 200px;
+        height: 100px;
+        gap: .5rem;
+        padding-left: 1.5rem;
+    }
+}

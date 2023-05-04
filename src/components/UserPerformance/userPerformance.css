@@ -4,3 +4,10 @@
     height: 262px;
     border-radius: 5px;
 }
+
+@media screen and (max-width: 1160px) {
+    .userPerformance {
+        width: 200px;
+        height: 205px;
+    }
+}
