@@ -30,7 +30,10 @@ export const Homepage = ({ userId = 12 }) => {
                 <AsideBar />
                 <main>
                     <div className='dashboard__header'>
-                        <h1>Bonjour <span style={{ color: 'red' }}>{user.firstName}</span></h1>
+                        <h1>Bonjour <span style={{ color: 'red' }}>
+                            {user.firstName}
+                        </span>
+                        </h1>
                         <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
                     </div>
                     <div className='dashboard'>

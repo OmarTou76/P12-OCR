@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { PieChart, Pie, Cell, ResponsiveContainer, Text, Legend } from 'recharts'
+import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from 'recharts'
 import { useFetch } from '../../utils/useFetch'
 import { User } from '../../models/User'
 import './userScore.css'
@@ -28,7 +28,6 @@ export const UserScore = ({ userId }) => {
                         <Legend verticalAlign='top' height={15} content={() => (
                             <p className='userScore__title'>Score</p>
                         )} />
-
                         <Pie
                             data={score}
                             cx={"50%"}
