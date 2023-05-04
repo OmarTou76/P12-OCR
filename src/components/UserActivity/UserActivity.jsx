@@ -30,8 +30,8 @@ export const UserActivity = ({ userId = 18 }) => {
         <div className='userActivity'>
             {!activity ? <p>...Loading</p> :
                 <ResponsiveContainer width="100%"
-                    aspect={4}>
-                    <BarChart barSize={12} data={activity}>
+                    aspect={3.5}>
+                    <BarChart barSize={9} data={activity}>
                         <Legend verticalAlign='top' height={60}
                             content={({ payload }) => {
                                 return (
