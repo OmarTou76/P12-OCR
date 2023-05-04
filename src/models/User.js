@@ -1,6 +1,7 @@
 export class User {
     model = {}
     score = {}
+    keyData = {}
     constructor(userData) {
         this.createModel(userData)
     }
@@ -15,6 +16,7 @@ export class User {
             score: score * 100,
             keyData: userData.keyData
         }
+
         this.score = [
             {
                 score: this.model.score,
@@ -23,6 +25,13 @@ export class User {
                 score: Math.abs(this.model.score - 100) // rest of percent
             },
         ]
+
+        this.keyData = {
+            calorie: `${this.model.keyData.calorieCount}kCal`,
+            protein: `${this.model.keyData.proteinCount}g`,
+            carbohydrate: `${this.model.keyData.carbohydrateCount}g`,
+            lipid: `${this.model.keyData.lipidCount}g`,
+        }
     }
 
 }
