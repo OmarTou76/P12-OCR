@@ -10,6 +10,7 @@ import {
 import { useFetch } from '../../utils/useFetch';
 import './userAverageSessions.css'
 import { AverageSessions } from '../../models/AverageSessions';
+import PropTypes from 'prop-types'
 
 export const UserAverageSessions = ({ userId }) => {
 
@@ -79,4 +80,6 @@ export const UserAverageSessions = ({ userId }) => {
         </div>
     )
 }
-
+UserAverageSessions.propTypes = {
+    userId: PropTypes.number.isRequired,
+}
