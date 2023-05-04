@@ -8,14 +8,17 @@ import { UserActivity } from '../../components/UserActivity/UserActivity'
 import { UserAverageSessions } from '../../components/UserAverageSessions/UserAverageSessions'
 import { UserPerformance } from '../../components/UserPerformance/UserPerformance'
 import { UserScore } from '../../components/UserScore/UserScore'
+import { Badge } from '../../components/Badge/Badge'
 
 export const Homepage = ({ userId = 12 }) => {
     const [user, setUser] = useState({})
+    const [keyData, setKeyData] = useState({})
     const [userData, userLoading, userError] = useFetch(userId)
     useEffect(() => {
         if (userData && !userError && !userLoading) {
             const user = new User(userData.data)
             setUser(user.model)
+            setKeyData(user.keyData)
         }
     }, [userData, userError, userLoading])
 
@@ -48,7 +51,30 @@ export const Homepage = ({ userId = 12 }) => {
                             </div>
                         </div>
                         <div className="dashboard__right">
-
+                            <Badge
+                                data={keyData.calorie}
+                                categoryName="Calories"
+                                iconName="calorie"
+                                color="#FF000011"
+                            />
+                            <Badge
+                                data={keyData.protein}
+                                categoryName="Proteines"
+                                iconName="protein"
+                                color="#4AB8FF11"
+                            />
+                            <Badge
+                                data={keyData.carbohydrate}
+                                categoryName="Glucides"
+                                iconName="carbohydrate"
+                                color="#FDCC0C11"
+                            />
+                            <Badge
+                                data={keyData.lipid}
+                                categoryName="Lipides"
+                                iconName="lipid"
+                                color="#FD518111"
+                            />
                         </div>
                     </div>
                 </main>

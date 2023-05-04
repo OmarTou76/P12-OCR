@@ -56,9 +56,6 @@ main {
     flex-direction: column;
     gap: 1.5rem;
 }
-.dashboard__left__top {
-
-}
 
 .dashboard__left__bottom {
     display: flex;
@@ -69,5 +66,8 @@ main {
 
 .dashboard__right {
     flex: 1;
-    background: peru;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
