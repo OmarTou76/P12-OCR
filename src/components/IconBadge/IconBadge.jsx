@@ -1,10 +1,11 @@
 import React from 'react'
 import "./iconBadge.css"
+import { ICONSPORTS } from '../../models/images'
 
-export const IconBadge = ({ icon, name }) => {
+export const IconBadge = ({ name }) => {
     return (
         <div className='iconBadge'>
-            <img src={icon} alt={name + " icon"} />
+            <img src={ICONSPORTS[name]} alt={name + " icon"} />
         </div>
     )
 }
