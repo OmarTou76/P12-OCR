@@ -9,6 +9,7 @@ import {
     Radar
 } from 'recharts'
 import './userPerformance.css'
+import PropTypes from 'prop-types'
 
 export const UserPerformance = ({ userId }) => {
 
@@ -36,4 +37,8 @@ export const UserPerformance = ({ userId }) => {
             )}
         </div>
     )
+}
+
+UserPerformance.propTypes = {
+    userId: PropTypes.number.isRequired,
 }
