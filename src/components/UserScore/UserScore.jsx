@@ -3,6 +3,7 @@ import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from 'recharts'
 import { useFetch } from '../../utils/useFetch'
 import { User } from '../../models/User'
 import './userScore.css'
+import PropTypes from 'prop-types'
 
 export const UserScore = ({ userId }) => {
 
@@ -70,4 +71,8 @@ export const UserScore = ({ userId }) => {
             )}
         </div>
     )
+}
+
+UserScore.propTypes = {
+    userId: PropTypes.number.isRequired,
 }
