@@ -12,8 +12,9 @@ import {
     Legend
 } from "recharts";
 import { Activity } from '../../models/Activity';
+import PropTypes from 'prop-types';
 
-export const UserActivity = ({ userId = 18 }) => {
+export const UserActivity = ({ userId }) => {
     const [activity, setActivity] = useState({})
     const [userActivity, activityLoading, errorActivity] = useFetch(userId, "activity")
 
@@ -65,4 +66,8 @@ export const UserActivity = ({ userId = 18 }) => {
             }
         </div>
     )
+}
+
+UserActivity.propTypes = {
+    userId: PropTypes.number.isRequired,
 }
