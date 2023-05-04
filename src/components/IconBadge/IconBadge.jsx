@@ -12,5 +12,5 @@ export const IconBadge = ({ name }) => {
 }
 
 IconBadge.propTypes = {
-    name: PropTypes.string,
+    name: PropTypes.string.isRequired,
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 import './badge.css'
 import { ICON } from '../../models/images'
+import PropTypes from 'prop-types'
 
 export const Badge = ({ data, categoryName, iconName, color }) => {
-
     return (
         <div className='badge'>
             <div className='badge__icon' style={{ background: color }}>
@@ -15,4 +15,11 @@ export const Badge = ({ data, categoryName, iconName, color }) => {
             </div>
         </div>
     )
+}
+
+Badge.propTypes = {
+    data: PropTypes.string.isRequired,
+    categoryName: PropTypes.string.isRequired,
+    iconName: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
 }
