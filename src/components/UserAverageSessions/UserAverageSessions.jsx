@@ -11,39 +11,22 @@ import { useFetch } from '../../utils/useFetch';
 import './userAverageSessions.css'
 import { AverageSessions } from '../../models/AverageSessions';
 import PropTypes from 'prop-types'
+import { useBackground } from './useBackground';
 
 export const UserAverageSessions = ({ userId }) => {
 
     const [sessions, setSessions] = useState({})
     const [userSessions, sessionsLoading, errorSessions] = useFetch(userId, "average-sessions")
-    const [isTooltipActive, setTooltip] = useState(false)
-    const [backgroundPercent, setBackgroundPercent] = useState(null)
+    const { isTooltipActive, setTooltip, backgroundPercent, handleBackgroundPercent, calculateCssPercent } = useBackground(sessions.length)
 
     useEffect(() => {
         if (!sessionsLoading && !errorSessions) {
-            setSessions(new AverageSessions(userSessions))
+            const average = new AverageSessions(userSessions)
+            setSessions(average.data)
         }
     }, [userSessions, sessionsLoading, errorSessions])
 
     if (errorSessions) return <p>Error with data</p>
-
-    const handleBackgroundPercer = (e) => {
-        setTooltip(e.isTooltipActive)
-        if (!e.isTooltipActive) return
-        const labelSum = sessions.length - 1
-        const percent = ((100 * e.activeTooltipIndex) / labelSum)
-        setBackgroundPercent(Math.abs(percent - 100))
-    }
-
-    const calculateCssPercent = (percent) => {
-        if (percent === 50) {
-            return `${backgroundPercent}%`
-        } else if (percent < 50) {
-            return `calc(${backgroundPercent}% + 0.5rem)`
-        } else if (percent > 50) {
-            return `calc(${backgroundPercent}% - 0.5rem)`
-        }
-    }
 
     return (
         <div className='userAverageSessions'
@@ -54,7 +37,7 @@ export const UserAverageSessions = ({ userId }) => {
                 <ResponsiveContainer width="100%" height="100%">
                     <LineChart data={sessions}
                         onMouseLeave={() => setTooltip(false)}
-                        onMouseMove={handleBackgroundPercer}
+                        onMouseMove={handleBackgroundPercent}
                     >
                         <defs>
                             <linearGradient id="MyGradient">
