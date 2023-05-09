@@ -13,14 +13,14 @@ export const UserScore = ({ userId }) => {
     useEffect(() => {
         if (userData && !userError && !userLoading) {
             const user = new User(userData.data)
-            setScore(user.score)
+            setScore(user.scoresData)
         }
     }, [userData, userError, userLoading])
 
 
     if (userError) return <p>Error</p>
 
-
+    console.log(score)
     return (
         <div className='userScore'>
             {!score ? <p>...Loading</p> : (
