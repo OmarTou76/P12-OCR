@@ -14,7 +14,7 @@ import PropTypes from 'prop-types'
 export const UserPerformance = ({ userId }) => {
 
     const [performance, setPerformance] = useState({})
-    const [userPerformance, performanceLoading, errorPerformance] = useFetch(userId, "performance")
+    const [userPerformance, errorPerformance, performanceLoading] = useFetch(userId, "performance")
 
     useEffect(() => {
         if (!performanceLoading && !errorPerformance) {
@@ -23,11 +23,11 @@ export const UserPerformance = ({ userId }) => {
         }
     }, [userPerformance, performanceLoading, errorPerformance])
 
-    if (errorPerformance) return <p>Error with data</p>
+    if (errorPerformance) return <div className="userPerformance"><p>Error with performance datas</p></div>
 
     return (
         <div className='userPerformance' >
-            {!performance ? <p>...Loading</p> : (
+            {performanceLoading ? <p>...Loading</p> : (
                 <ResponsiveContainer width="100%" height="100%">
                     <RadarChart cx="50%" cy="50%" outerRadius="65%" data={performance}>
                         <PolarGrid radialLines={false} stroke='white' />
@@ -43,6 +43,5 @@ export const UserPerformance = ({ userId }) => {
 UserPerformance.propTypes = {
     userId: PropTypes.oneOfType([
         PropTypes.number,
-        PropTypes.oneOf(["mock"])
     ]).isRequired,
 }

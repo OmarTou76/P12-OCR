@@ -3,6 +3,7 @@
     width: 258px;
     height: 262px;
     border-radius: 5px;
+    color: white;
 }
 
 @media screen and (max-width: 1160px) {

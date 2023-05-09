@@ -9,20 +9,20 @@ export const UserScore = ({ userId }) => {
 
 
     const [score, setScore] = useState({})
-    const [userData, userLoading, userError] = useFetch(userId)
+    const [userData, userError, userLoading] = useFetch(userId)
     useEffect(() => {
-        if (userData && !userError && !userLoading) {
+        if (!userError && !userLoading) {
             const user = new User(userData)
             setScore(user.scoresData)
         }
     }, [userData, userError, userLoading])
 
 
-    if (userError) return <p>Error</p>
+    if (userError) return (<div className="userScore"><p>Error</p></div>)
 
     return (
         <div className='userScore'>
-            {!score ? <p>...Loading</p> : (
+            {userLoading ? <p>...Loading</p> : (
                 <ResponsiveContainer width="100%" height="100%" >
                     <PieChart>
                         <Legend verticalAlign='top' height={15} content={() => (
@@ -75,6 +75,5 @@ export const UserScore = ({ userId }) => {
 UserScore.propTypes = {
     userId: PropTypes.oneOfType([
         PropTypes.number,
-        PropTypes.oneOf(["mock"])
     ]).isRequired,
 }

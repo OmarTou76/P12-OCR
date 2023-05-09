@@ -16,7 +16,7 @@ import { useBackground } from './useBackground';
 export const UserAverageSessions = ({ userId }) => {
 
     const [sessions, setSessions] = useState({})
-    const [userSessions, sessionsLoading, errorSessions] = useFetch(userId, "average-sessions")
+    const [userSessions, errorSessions, sessionsLoading] = useFetch(userId, "average-sessions")
     const { isTooltipActive, setTooltip, backgroundPercent, handleBackgroundPercent, calculateCssPercent } = useBackground(sessions.length)
 
     useEffect(() => {
@@ -26,14 +26,14 @@ export const UserAverageSessions = ({ userId }) => {
         }
     }, [userSessions, sessionsLoading, errorSessions])
 
-    if (errorSessions) return <p>Error with data</p>
+    if (errorSessions) return <div className="userAverageSessions"><p>Error with average sessions datas</p></div>
 
     return (
         <div className='userAverageSessions'
             style={{
                 background: isTooltipActive && `linear-gradient(270deg, rgba(208,0,0,1) ${calculateCssPercent(backgroundPercent)}, rgba(255,0,0,1) ${calculateCssPercent(backgroundPercent)})`
             }} >
-            {!sessions ? <p>...Loading</p> :
+            {sessionsLoading ? <p>...Loading</p> :
                 <ResponsiveContainer width="100%" height="100%">
                     <LineChart data={sessions}
                         onMouseLeave={() => setTooltip(false)}
@@ -66,6 +66,5 @@ export const UserAverageSessions = ({ userId }) => {
 UserAverageSessions.propTypes = {
     userId: PropTypes.oneOfType([
         PropTypes.number,
-        PropTypes.oneOf(["mock"])
     ]).isRequired,
 }

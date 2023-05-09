@@ -16,20 +16,20 @@ import PropTypes from 'prop-types';
 
 export const UserActivity = ({ userId }) => {
     const [activity, setActivity] = useState({})
-    const [userActivity, activityLoading, errorActivity] = useFetch(userId, "activity")
+    const [userActivity, errorActivity, activityLoading] = useFetch(userId, "activity")
 
     useEffect(() => {
         if (!activityLoading && !errorActivity) {
             const activities = new Activity(userActivity)
             setActivity(activities.data)
         }
-    }, [userActivity, activityLoading, errorActivity])
+    }, [userActivity, errorActivity, activityLoading,])
 
-    if (errorActivity) return <p>Error with data</p>
+    if (errorActivity) return <div className="userActivity"><p>Error with data</p></div>
 
     return (
         <div className='userActivity'>
-            {!activity ? <p>...Loading</p> :
+            {activityLoading ? <p>...Loading</p> :
                 <ResponsiveContainer width="100%"
                     aspect={3.5}>
                     <BarChart barSize={9} data={activity}>
@@ -71,6 +71,5 @@ export const UserActivity = ({ userId }) => {
 UserActivity.propTypes = {
     userId: PropTypes.oneOfType([
         PropTypes.number,
-        PropTypes.oneOf(["mock"])
     ]).isRequired,
 }
