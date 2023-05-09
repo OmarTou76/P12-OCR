@@ -12,7 +12,6 @@ import { ErrorPage } from '../Error'
 
 export const UserPage = () => {
     const userId = Number(useParams().id)
-    console.log(userId)
     const [user, setUser] = useState({})
     const [userData, userError, userLoading] = useFetch(userId)
     useEffect(() => {

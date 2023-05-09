@@ -6,7 +6,7 @@ export const HomePage = () => {
     return (
         <div className='homepage'>
             <ul>
-                <h1>Utilisateurs: </h1>
+                <h1>Utilisateurs (API):</h1>
                 <li>
                     <Link to={'/user/12'}>
                         Karl Dovineau
@@ -19,7 +19,7 @@ export const HomePage = () => {
                 </li>
             </ul>
             <ul>
-                <h1>Donnée par defaut (local): </h1>
+                <h1>Utilisateur par defaut (local): </h1>
                 <li>
                     <Link to={'/user/mock'}>
                         John Doe
