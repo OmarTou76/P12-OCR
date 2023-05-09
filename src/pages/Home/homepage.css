@@ -1,0 +1,17 @@
+.homepage {
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.homepage ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.homepage li {
+    text-decoration-line: underline;
+    color: var(--red);
+}
