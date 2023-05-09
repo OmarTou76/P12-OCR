@@ -8,6 +8,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { ErrorPage } from "./pages/Error";
+import './App.css'
 
 function App() {
 
@@ -34,7 +35,7 @@ function App() {
         },
         {
           path: '*',
-          element: <ErrorPage />
+          element: <ErrorPage message="Page introuvable." />
         }
       ]
     }
