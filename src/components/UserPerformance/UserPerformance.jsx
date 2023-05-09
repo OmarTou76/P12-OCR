@@ -18,12 +18,13 @@ export const UserPerformance = ({ userId }) => {
 
     useEffect(() => {
         if (!performanceLoading && !errorPerformance) {
-            setPerformance(new Performance(userPerformance))
+            const userData = new Performance(userPerformance)
+            setPerformance(userData.data)
         }
     }, [userPerformance, performanceLoading, errorPerformance])
 
     if (errorPerformance) return <p>Error with data</p>
-
+    console.log(performance)
     return (
         <div className='userPerformance' >
             {!performance ? <p>...Loading</p> : (

@@ -1,6 +1,7 @@
 export class Performance {
+    data;
 
-    _kindCategory = {
+    _kindCategoryFR = {
         1: 'Cardio',
         2: "Energie",
         3: 'Endurance',
@@ -10,16 +11,9 @@ export class Performance {
     }
 
     constructor(performanceData) {
-        this.model = {}
-        this.createModel(performanceData)
-        return this.model
-    }
-
-    createModel(performanceData) {
-        this.model = performanceData.data.data.map(data => ({
+        this.data = performanceData.data.data.map(data => ({
             ...data,
-            kind: this._kindCategory[data.kind]
+            kind: this._kindCategoryFR[data.kind]
         }))
-
     }
 }
