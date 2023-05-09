@@ -12,7 +12,7 @@ export const useFetch = (id, section = "") => {
 
             try {
                 let dataSection;
-                if (id === "mock") {
+                if (id === 1) {
                     const sectionSelected = section || "user"
                     dataSection = mockedData[0][sectionSelected]
                 } else {
@@ -30,9 +30,7 @@ export const useFetch = (id, section = "") => {
                 setLoading(false)
             }
         }
-
         setLoading(true)
-
         fetchData()
     }, [id, section])
 

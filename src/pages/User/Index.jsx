@@ -11,7 +11,8 @@ import { useParams } from 'react-router-dom'
 import { ErrorPage } from '../Error'
 
 export const UserPage = () => {
-    const { id: userId } = useParams()
+    const userId = Number(useParams().id)
+    console.log(userId)
     const [user, setUser] = useState({})
     const [userData, userError, userLoading] = useFetch(userId)
     useEffect(() => {
@@ -25,7 +26,6 @@ export const UserPage = () => {
     if (userError) {
         return <ErrorPage message={"Cet utilisateur n'existe pas ou plus."} />
     }
-
     return (
         <>
             {!Object.keys(user).length ? <p>...Loading</p> : (
