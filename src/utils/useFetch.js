@@ -17,11 +17,14 @@ export const useFetch = (id, section = "") => {
                     dataSection = mockedData[0][sectionSelected]
                 } else {
                     const response = await fetch(`http://localhost:3000/user/${id}${section ? "/" + section : ""}`)
+                    if (!response.ok) {
+                        throw new Error('Invalid user id')
+                    }
                     dataSection = await response.json().then(res => res.data)
                 }
                 setData(dataSection)
             } catch (error) {
-                console.log('Error', error)
+                console.log(error)
                 setError(true)
             } finally {
                 setLoading(false)
