@@ -22,9 +22,10 @@ export const UserPage = () => {
     }, [userData, userError, userLoading])
 
 
-    if (userError) {
+    if (userError || isNaN(userId)) {
         return <ErrorPage message={"Cet utilisateur n'existe pas ou plus."} />
     }
+
     return (
         <>
             {!Object.keys(user).length ? <p>...Loading</p> : (
