@@ -21,7 +21,7 @@ export const HomePage = () => {
             <ul>
                 <h1>Utilisateur par defaut (local): </h1>
                 <li>
-                    <Link to={'/user/mock'}>
+                    <Link to={'/user/1'}>
                         John Doe
                     </Link>
                 </li>
