@@ -1,18 +1,24 @@
 import { useEffect, useState } from "react"
+import mockedData from '../mock/data.json'
 
 export const useFetch = (id, section = "") => {
     const [data, setData] = useState({})
     const [error, setError] = useState(false)
     const [isLoading, setLoading] = useState(true)
-
     useEffect(() => {
         if (!id) return
 
         const fetchData = async () => {
 
             try {
-                const response = await fetch(`http://localhost:3000/user/${id}${section ? "/" + section : ""}`)
-                const dataSection = await response.json()
+                let dataSection;
+                if (id === "mock") {
+                    const sectionSelected = section || "user"
+                    dataSection = mockedData[0][sectionSelected]
+                } else {
+                    const response = await fetch(`http://localhost:3000/user/${id}${section ? "/" + section : ""}`)
+                    dataSection = await response.json().then(res => res.data)
+                }
                 setData(dataSection)
             } catch (error) {
                 console.log('Error', error)

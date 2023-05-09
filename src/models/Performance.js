@@ -11,7 +11,7 @@ export class Performance {
     }
 
     constructor(performanceData) {
-        this.data = performanceData.data.data.map(data => ({
+        this.data = performanceData.data.map(data => ({
             ...data,
             kind: this._kindCategoryFR[data.kind]
         }))

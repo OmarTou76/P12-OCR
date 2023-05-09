@@ -10,12 +10,12 @@ import { UserPerformance } from '../../components/UserPerformance/UserPerformanc
 import { UserScore } from '../../components/UserScore/UserScore'
 import { Badge } from '../../components/Badge/Badge'
 
-export const Homepage = ({ userId = 18 }) => {
+export const Homepage = ({ userId = "mock" }) => {
     const [user, setUser] = useState({})
     const [userData, userLoading, userError] = useFetch(userId)
     useEffect(() => {
         if (userData && !userError && !userLoading) {
-            const user = new User(userData.data)
+            const user = new User(userData)
             setUser(user)
         }
     }, [userData, userError, userLoading])

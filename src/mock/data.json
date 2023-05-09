@@ -1,0 +1,129 @@
+[
+    {
+        "user": {
+            "id": "mock",
+            "userInfos": {
+                "firstName": "John",
+                "lastName": "Doe",
+                "age": 42
+            },
+            "todayScore": 0.62,
+            "keyData": {
+                "calorieCount": 1130,
+                "proteinCount": 115,
+                "carbohydrateCount": 280,
+                "lipidCount": 30
+            }
+        },
+        "activity": {
+            "userId": "mock",
+            "sessions": [
+                  {
+                      "day": "2020-07-01",
+                      "kilogram": 80,
+                      "calories": 240
+                  },
+                  {
+                      "day": "2020-07-02",
+                      "kilogram": 80,
+                      "calories": 220
+                  },
+                  {
+                      "day": "2020-07-03",
+                      "kilogram": 81,
+                      "calories": 280
+                  },
+                  {
+                      "day": "2020-07-04",
+                      "kilogram": 81,
+                      "calories": 290
+                  },
+                  {
+                      "day": "2020-07-05",
+                      "kilogram": 80,
+                      "calories": 160
+                  },
+                  {
+                      "day": "2020-07-06",
+                      "kilogram": 78,
+                      "calories": 162
+                  },
+                  {
+                      "day": "2020-07-07",
+                      "kilogram": 76,
+                      "calories": 390
+                  }
+              ]
+          },
+          "average-sessions": {
+              "userId": "mock",
+              "sessions": [
+                  {
+                      "day": 1,
+                      "sessionLength": 0
+                  },
+                  {
+                      "day": 2,
+                      "sessionLength": 70
+                  },
+                  {
+                      "day": 3,
+                      "sessionLength": 30
+                  },
+                  {
+                      "day": 4,
+                      "sessionLength": 40
+                  },
+                  {
+                      "day": 5,
+                      "sessionLength": 10
+                  },
+                  {
+                      "day": 6,
+                      "sessionLength": 50
+                  },
+                  {
+                      "day": 7,
+                      "sessionLength": 0
+                  }
+              ]
+          },
+          "performance": {
+              "userId": "mock",
+              "kind": {
+                  "1": "cardio",
+                  "2": "energy",
+                  "3": "endurance",
+                  "4": "strength",
+                  "5": "speed",
+                  "6": "intensit"
+              },
+              "data": [
+                  {
+                      "value": 130,
+                      "kind": 1
+                  },
+                  {
+                      "value": 180,
+                      "kind": 2
+                  },
+                  {
+                      "value": 140,
+                      "kind": 3
+                  },
+                  {
+                      "value": 250,
+                      "kind": 4
+                  },
+                  {
+                      "value": 200,
+                      "kind": 5
+                  },
+                  {
+                      "value": 190,
+                      "kind": 6
+                  }
+              ]
+          }
+  }    
+]

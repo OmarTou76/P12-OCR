@@ -12,7 +12,7 @@ export const UserScore = ({ userId }) => {
     const [userData, userLoading, userError] = useFetch(userId)
     useEffect(() => {
         if (userData && !userError && !userLoading) {
-            const user = new User(userData.data)
+            const user = new User(userData)
             setScore(user.scoresData)
         }
     }, [userData, userError, userLoading])
@@ -73,5 +73,8 @@ export const UserScore = ({ userId }) => {
 }
 
 UserScore.propTypes = {
-    userId: PropTypes.number.isRequired,
+    userId: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.oneOf(["mock"])
+    ]).isRequired,
 }
