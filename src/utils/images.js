@@ -8,10 +8,10 @@ import swim from '../assets/swim.png'
 import bike from '../assets/bike.png'
 
 export const ICON = {
-    protein: chicken,
-    calorie: energy,
-    carbohydrate: apple,
-    lipid: cheeseburger
+    Proteines: chicken,
+    Calories: energy,
+    Glucides: apple,
+    Lipides: cheeseburger
 }
 
 export const ICONSPORTS = {
