@@ -1,15 +1,9 @@
 export class Activity {
+    data;
     constructor(activity) {
-        this.model = {}
-        this.createModel(activity)
-        return this.model
-    }
-
-    createModel(activity) {
-
-        this.model = activity.data.sessions.map((activity, index) => ({
-            ...activity,
-            index: index + 1
+        this.data = activity.data.sessions.map((userData) => ({
+            ...userData,
+            day: new Date(userData.day).getDay()
         }))
     }
 }

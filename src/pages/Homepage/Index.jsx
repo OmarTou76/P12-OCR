@@ -10,21 +10,18 @@ import { UserPerformance } from '../../components/UserPerformance/UserPerformanc
 import { UserScore } from '../../components/UserScore/UserScore'
 import { Badge } from '../../components/Badge/Badge'
 
-export const Homepage = ({ userId = 12 }) => {
+export const Homepage = ({ userId = 18 }) => {
     const [user, setUser] = useState({})
-    const [keyData, setKeyData] = useState({})
     const [userData, userLoading, userError] = useFetch(userId)
     useEffect(() => {
         if (userData && !userError && !userLoading) {
             const user = new User(userData.data)
-            setUser(user.model)
-            setKeyData(user.keyData)
+            setUser(user)
         }
     }, [userData, userError, userLoading])
 
 
     if (userError) return <p>Error</p>
-
     return (
         <>
             {!Object.keys(user).length ? <p>...Loading Homepage</p> : (
@@ -52,30 +49,13 @@ export const Homepage = ({ userId = 12 }) => {
                                     </div>
                                 </div>
                                 <div className="dashboard__right">
-                                    <Badge
-                                        data={keyData.calorie}
-                                        categoryName="Calories"
-                                        iconName="calorie"
-                                        color="#FF000011"
-                                    />
-                                    <Badge
-                                        data={keyData.protein}
-                                        categoryName="Proteines"
-                                        iconName="protein"
-                                        color="#4AB8FF11"
-                                    />
-                                    <Badge
-                                        data={keyData.carbohydrate}
-                                        categoryName="Glucides"
-                                        iconName="carbohydrate"
-                                        color="#FDCC0C11"
-                                    />
-                                    <Badge
-                                        data={keyData.lipid}
-                                        categoryName="Lipides"
-                                        iconName="lipid"
-                                        color="#FD518111"
-                                    />
+                                    {user.keyData.map((data, key) => (
+                                        <Badge key={key}
+                                            color={data.backgroundColorIcon}
+                                            categoryName={data.label}
+                                            data={data.value + data.unit}
+                                        />
+                                    ))}
                                 </div>
                             </div>
                         </main>

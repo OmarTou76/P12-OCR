@@ -20,13 +20,13 @@ export const UserActivity = ({ userId }) => {
 
     useEffect(() => {
         if (!activityLoading && !errorActivity) {
-            setActivity(new Activity(userActivity))
-
+            const activities = new Activity(userActivity)
+            setActivity(activities.data)
         }
     }, [userActivity, activityLoading, errorActivity])
 
     if (errorActivity) return <p>Error with data</p>
-
+    console.log(activity)
     return (
         <div className='userActivity'>
             {!activity ? <p>...Loading</p> :
@@ -49,7 +49,7 @@ export const UserActivity = ({ userId }) => {
                                     </div>
                                 )
                             }} />
-                        <XAxis tickLine={false} dataKey={"index"} tickSize={20} />
+                        <XAxis tickLine={false} dataKey={"day"} tickSize={20} />
                         <YAxis orientation='right' tickLine={false} tickSize={15} axisLine={false} />
                         <Tooltip
                             contentStyle={{ background: 'red' }}
