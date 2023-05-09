@@ -41,5 +41,8 @@ export const UserPerformance = ({ userId }) => {
 }
 
 UserPerformance.propTypes = {
-    userId: PropTypes.number.isRequired,
+    userId: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.oneOf(["mock"])
+    ]).isRequired,
 }

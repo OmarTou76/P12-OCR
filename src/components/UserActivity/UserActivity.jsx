@@ -69,5 +69,8 @@ export const UserActivity = ({ userId }) => {
 }
 
 UserActivity.propTypes = {
-    userId: PropTypes.number.isRequired,
+    userId: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.oneOf(["mock"])
+    ]).isRequired,
 }

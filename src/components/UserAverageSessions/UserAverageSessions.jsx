@@ -64,5 +64,8 @@ export const UserAverageSessions = ({ userId }) => {
     )
 }
 UserAverageSessions.propTypes = {
-    userId: PropTypes.number.isRequired,
+    userId: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.oneOf(["mock"])
+    ]).isRequired,
 }
