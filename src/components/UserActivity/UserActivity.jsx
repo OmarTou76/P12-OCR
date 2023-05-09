@@ -26,7 +26,7 @@ export const UserActivity = ({ userId }) => {
     }, [userActivity, activityLoading, errorActivity])
 
     if (errorActivity) return <p>Error with data</p>
-    console.log(activity)
+
     return (
         <div className='userActivity'>
             {!activity ? <p>...Loading</p> :

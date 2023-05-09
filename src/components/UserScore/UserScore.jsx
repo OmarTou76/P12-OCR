@@ -20,7 +20,6 @@ export const UserScore = ({ userId }) => {
 
     if (userError) return <p>Error</p>
 
-    console.log(score)
     return (
         <div className='userScore'>
             {!score ? <p>...Loading</p> : (

@@ -24,7 +24,7 @@ export const UserPerformance = ({ userId }) => {
     }, [userPerformance, performanceLoading, errorPerformance])
 
     if (errorPerformance) return <p>Error with data</p>
-    console.log(performance)
+
     return (
         <div className='userPerformance' >
             {!performance ? <p>...Loading</p> : (

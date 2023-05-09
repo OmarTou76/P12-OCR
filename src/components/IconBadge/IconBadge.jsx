@@ -1,6 +1,6 @@
 import React from 'react'
 import "./iconBadge.css"
-import { ICONSPORTS } from '../../models/images'
+import { ICONSPORTS } from '../../utils/images'
 import PropTypes from 'prop-types'
 
 export const IconBadge = ({ name }) => {
