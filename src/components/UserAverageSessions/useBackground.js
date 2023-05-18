@@ -1,4 +1,9 @@
 import { useState } from "react"
+/**
+ * Hook that calculates the fill percentage of the dark background
+ * @param {*} sessionsLength Number of sessions 
+ * @returns 
+ */
 export const useBackground = (sessionsLength) => {
     const [isTooltipActive, setTooltip] = useState(false)
     const [backgroundPercent, setBackgroundPercent] = useState(null)
