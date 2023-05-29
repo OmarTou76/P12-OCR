@@ -18,7 +18,6 @@ export const useFetch = (id, section = "") => {
         if (!id) return
 
         const fetchData = async () => {
-
             try {
                 let dataSection;
                 if (id === 1) {

@@ -1,7 +1,7 @@
 [
     {
         "user": {
-            "id": "mock",
+            "id": "1",
             "userInfos": {
                 "firstName": "John",
                 "lastName": "Doe",
@@ -16,7 +16,7 @@
             }
         },
         "activity": {
-            "userId": "mock",
+            "userId": "1",
             "sessions": [
                   {
                       "day": "2020-07-01",
@@ -56,7 +56,7 @@
               ]
           },
           "average-sessions": {
-              "userId": "mock",
+              "userId": "1",
               "sessions": [
                   {
                       "day": 1,
@@ -89,7 +89,7 @@
               ]
           },
           "performance": {
-              "userId": "mock",
+              "userId": "1",
               "kind": {
                   "1": "cardio",
                   "2": "energy",

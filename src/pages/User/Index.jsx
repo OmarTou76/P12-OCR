@@ -28,7 +28,7 @@ export const UserPage = () => {
 
     return (
         <>
-            {!Object.keys(user).length ? <p>...Loading</p> : (
+            {!user.id ? <p>...Loading</p> : (
                 <>
                     <div className='dashboard__header'>
                         <h1>Bonjour <span style={{ color: 'red' }}>
@@ -40,12 +40,12 @@ export const UserPage = () => {
                     <div className='dashboard'>
                         <div className="dashboard__left">
                             <div className="dashboard__left__top">
-                                <UserActivity userId={userId} />
+                                <UserActivity userId={user.id} />
                             </div>
                             <div className="dashboard__left__bottom">
-                                <UserAverageSessions userId={userId} />
-                                <UserPerformance userId={userId} />
-                                <UserScore userId={userId} />
+                                <UserAverageSessions userId={user.id} />
+                                <UserPerformance userId={user.id} />
+                                <UserScore userId={user.id} />
                             </div>
                         </div>
                         <div className="dashboard__right">

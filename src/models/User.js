@@ -9,7 +9,7 @@ export class User {
     keyData;
 
     constructor(userData) {
-        this.id = userData.id;
+        this.id = parseInt(userData.id);
         this.firstName = userData.userInfos.firstName;
         this.lastName = userData.userInfos.lastName;
         this.age = userData.userInfos.age;
