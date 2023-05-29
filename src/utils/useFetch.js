@@ -5,8 +5,8 @@ import mockedData from '../mock/data.json'
  * @param {number} id user ID to search
  * @param {string} section requested section
 *  @returns {{
- *   data: object , // Data retrieved from the server.
- *   error: boolean, // error state.
+ *   data: object  // Data retrieved from the server.
+ *   error: boolean // error state.
  *   isLoading: boolean // loading state.
  * }}
  */
